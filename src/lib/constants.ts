@@ -21,9 +21,9 @@ export type ImageAsset = {
 };
 
 export const IMAGES = {
-  heroPortrait: {
-    src: "/images/hero-portrait.webp",
-    alt: "Bhavya Wade in a dark cinematic editorial frame",
+  heroVisual: {
+    src: "/images/hero-atmosphere.webp",
+    alt: "Rain-lit city street at night in a cinematic frame",
   },
   heroEditorial: {
     src: "/images/contact-portrait.webp",

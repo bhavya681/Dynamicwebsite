@@ -79,12 +79,12 @@ export function Hero() {
       <div ref={imageWrap} className="reveal-clip absolute inset-0">
         <div ref={imageInner} className="absolute inset-0">
           <Image
-            src={IMAGES.heroPortrait.src}
-            alt={IMAGES.heroPortrait.alt}
+            src={IMAGES.heroVisual.src}
+            alt={IMAGES.heroVisual.alt}
             fill
-            priority
+            preload
             sizes="100vw"
-            className="object-cover object-[center_18%] opacity-[0.88]"
+            className="object-cover object-center opacity-[0.88]"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/25 via-40% to-ink" />
