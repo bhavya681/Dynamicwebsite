@@ -46,8 +46,8 @@ export const IMAGES = {
     alt: "Brutalist concrete architecture in warm light",
   },
   personalFeature: {
-    src: "/images/personal-bhavya.webp",
-    alt: "Bhavya Wade in a dark editorial crop",
+    src: "/images/tony-detail.webp",
+    alt: "Tony Ferguson in a dark editorial frame",
   },
   portrait: {
     src: "/images/portrait-bhavya.png",
@@ -235,9 +235,9 @@ export const GALLERY: GalleryItem[] = [
   },
   {
     src: "/images/tony-action.webp",
-    alt: "Tony Ferguson, Bhavya's favourite MMA fighter",
+    alt: "Tony Ferguson in a dark MMA frame",
     caption: "Tony Ferguson",
-    meta: "Influence / 05",
+    meta: "MMA / 05",
   },
   {
     src: "/images/gallery-garage.webp",

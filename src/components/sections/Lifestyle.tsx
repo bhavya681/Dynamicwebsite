@@ -122,17 +122,17 @@ export function Lifestyle() {
             />
             <div className="mt-5 flex items-start justify-between gap-4">
               <div>
-                <span className="font-mono-label text-ink/45">The reset</span>
+                <span className="font-mono-label text-ink/45">The influence</span>
                 <p className="mt-2 font-display text-xl text-ink md:text-2xl">
-                  Build. Reset. Repeat.
+                  Never predictable.
                 </p>
               </div>
               <Button
                 variant="ghost"
                 className="!text-ink hover:!text-gold"
-                onClick={() => scrollToTarget("#contact")}
+                onClick={() => scrollToTarget("#work")}
               >
-                Learn more <span aria-hidden>↗</span>
+                See the work <span aria-hidden>↗</span>
               </Button>
             </div>
           </div>
