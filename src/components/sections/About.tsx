@@ -1,0 +1,123 @@
+"use client";
+
+import { useRef } from "react";
+import { ImageReveal } from "@/components/ui/ImageReveal";
+import { RevealText } from "@/components/ui/RevealText";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { IMAGES } from "@/lib/constants";
+import { gsap } from "@/lib/animations";
+import { useGsap } from "@/hooks/useGsap";
+
+const MARQUEE_WORDS = ["Interfaces", "Intelligence", "Experiments", "Systems", "Craft", "Momentum"];
+
+export function About() {
+  const root = useRef<HTMLElement | null>(null);
+
+  useGsap(
+    () => {
+      gsap.fromTo(
+        root.current?.querySelectorAll<HTMLElement>("[data-about-line]") ?? [],
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: { trigger: root.current, start: "top 78%", once: true },
+        },
+      );
+    },
+    { scope: root },
+  );
+
+  return (
+    <section id="about" ref={root} className="relative overflow-hidden bg-ink py-24 md:py-40">
+      <div className="page-x">
+        <SectionLabel index="02">The introduction</SectionLabel>
+
+        <div className="mt-12 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-9">
+            <RevealText
+              as="h2"
+              text="I build interfaces, experiment with AI, and turn ideas into products that actually work."
+              className="font-display text-[clamp(2.6rem,6.4vw,6.4rem)] leading-[0.9] text-bone"
+            />
+          </div>
+          <div className="flex items-end lg:col-span-3">
+            <p className="max-w-xs font-mono-label leading-[2.1] text-bone/50">
+              The whole brief. Everything below is evidence.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-10 lg:mt-28 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-5 lg:col-start-1">
+            <ImageReveal
+              image={IMAGES.aboutPortrait}
+              className="aspect-[4/5] w-full"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              parallax
+              cursorLabel="EXPLORE"
+              zoom
+            />
+            <div className="mt-4 flex items-center justify-between font-mono-label text-bone/40">
+              <span>Fig. 01 — The builder</span>
+              <span>Mumbai → Internet</span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 lg:col-start-7 lg:pt-16">
+            <div className="space-y-8">
+              {[
+                "I'm Bhavya — a frontend developer and AI application builder who treats the browser like a workshop.",
+                "My work sits where product thinking, careful engineering and a little controlled chaos meet.",
+                "Some days that means a design system. Others it means a retrieval pipeline, a dashboard, or a strange idea that refuses to leave my head.",
+              ].map((paragraph, index) => (
+                <div key={paragraph} className="grid grid-cols-[2.5rem_1fr] gap-4 md:grid-cols-[4rem_1fr]">
+                  <span className="font-mono-label pt-2 text-gold">0{index + 1}</span>
+                  <RevealText
+                    as="p"
+                    text={paragraph}
+                    className="text-[1.05rem] leading-[1.75] text-bone/75 md:text-xl md:leading-[1.7]"
+                    stagger={0.018}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 flex flex-col gap-8 border-t border-bone/10 pt-8 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <span data-about-line className="block h-px w-16 origin-left bg-gold" />
+                <p className="mt-5 font-display text-3xl leading-tight text-bone md:text-5xl">
+                  The interface is the product.
+                  <br />
+                  <span className="text-gold">The story is the proof.</span>
+                </p>
+              </div>
+              <ImageReveal
+                image={IMAGES.aboutSecondary}
+                className="aspect-square w-28 shrink-0 md:w-40"
+                sizes="160px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-24 overflow-hidden border-y border-bone/10 py-6 md:mt-36">
+        <div className="marquee-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
+              {MARQUEE_WORDS.map((word) => (
+                <span key={`${copy}-${word}`} className="flex items-center">
+                  <span className="px-8 font-display text-4xl text-outline md:text-6xl">{word}</span>
+                  <span className="text-gold">✳</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
