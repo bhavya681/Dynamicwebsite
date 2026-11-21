@@ -29,24 +29,32 @@ const mono = Space_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bhavyawade.dev"),
-  title: "Bhavya Wade — Building the Unexpected",
+  title: "Bhavya Wade — Software Engineer / Full-Stack Developer",
   applicationName: "Bhavya Wade",
   creator: "Bhavya Wade",
   keywords: [
     "Bhavya Wade",
     "frontend developer",
-    "AI application builder",
-    "creative technologist",
+    "full-stack developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "AI engineering",
+    "AI and data science",
+    "MERN stack",
+    "WCAG accessibility",
+    "Zustand",
     "portfolio",
   ],
   description:
-    "Cinematic digital identity of Bhavya Wade: frontend developer, AI application builder and creative technologist.",
+    "Bhavya Wade — software engineer and full-stack developer in Mumbai building practical web products with React, Next.js and TypeScript. Frontend developer at Scogo Networks, hackathon winner and AI & data science graduate.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Bhavya Wade — Building the Unexpected",
-    description: "Frontend developer. AI application builder. Creative technologist.",
+    title: "Bhavya Wade — Software Engineer / Full-Stack Developer",
+    description:
+      "Software engineer building practical web products with React, Next.js and TypeScript — plus AI, data science and the story behind the builds.",
     type: "website",
     url: "/",
     siteName: "Bhavya Wade",
@@ -54,8 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhavya Wade — Building the Unexpected",
-    description: "Frontend developer. AI application builder. Creative technologist.",
+    title: "Bhavya Wade — Software Engineer / Full-Stack Developer",
+    description: "Software engineer building practical web products with React, Next.js, TypeScript and AI.",
     creator: "@wade_bhavy55123",
   },
 };

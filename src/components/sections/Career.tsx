@@ -1,18 +1,33 @@
 "use client";
 
 import { useRef } from "react";
-import { ImageReveal } from "@/components/ui/ImageReveal";
 import { RevealText } from "@/components/ui/RevealText";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { IMAGES, STATS } from "@/lib/constants";
+import { STATS } from "@/lib/constants";
 import { gsap, prefersReducedMotion } from "@/lib/animations";
 import { useGsap } from "@/hooks/useGsap";
 
 const TIMELINE = [
-  { year: "2023", title: "Frontend Intern", detail: "Scogo Networks · learned the craft in production." },
-  { year: "2024", title: "Frontend Developer", detail: "Scogo Networks · shipped interfaces around real workflows." },
-  { year: "2025", title: "AI application builder", detail: "RAG, tools and agents — from prototypes to products." },
-  { year: "2026", title: "Building the unexpected", detail: "A growing body of work across frontend, AI and full-stack systems." },
+  {
+    year: "2024–Now",
+    title: "Frontend Developer · Scogo Networks",
+    detail: "PPO after internship. React, Next.js, TypeScript, ShadCN, Zustand, secure REST, WCAG 2.1 and CI/CD.",
+  },
+  {
+    year: "May–Jun 2024",
+    title: "AI & ML Intern · Kodacy",
+    detail: "Chatbot NLP, intent classification, Python, scikit-learn and model evaluation.",
+  },
+  {
+    year: "Dec 2023",
+    title: "IoT Intern · Kodacy",
+    detail: "Sensor prototypes, MQTT, edge-to-cloud dashboards and embedded firmware basics.",
+  },
+  {
+    year: "Jun–Jul 2023",
+    title: "Network Engineer Intern · Tata Steel",
+    detail: "Python ping monitoring, industrial IT visibility and OT/IT integration.",
+  },
 ];
 
 function formatCount(value: number, final: string): string {
@@ -77,7 +92,7 @@ export function Career() {
             />
           </div>
           <p className="max-w-[15rem] font-mono-label leading-[2] text-bone/45">
-            Measured in shipped interfaces, working systems and problems worth solving.
+            Frontend developer at Scogo Networks, with internships across AI/ML, IoT and network engineering.
           </p>
         </div>
 
@@ -110,19 +125,33 @@ export function Career() {
         </div>
       </div>
 
-      <div className="relative mt-20 md:mt-28">
-        <ImageReveal
-          image={IMAGES.careerMain}
-          className="h-[55vh] w-full md:h-[75vh]"
-          sizes="100vw"
-          parallax
-          cursorLabel="EXPLORE"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
-        <div className="page-x pointer-events-none absolute inset-x-0 bottom-0 pb-8 md:pb-14">
-          <p className="max-w-2xl font-display text-3xl leading-[0.95] text-bone md:text-6xl">
-            Clean systems. Real products. <span className="text-gold">No filler.</span>
-          </p>
+      <div className="page-x mt-20 md:mt-28">
+        <div className="grid gap-px border border-bone/10 bg-bone/10 md:grid-cols-3">
+          {[
+            {
+              number: "01",
+              title: "Clarity over cleverness",
+              text: "Interfaces should explain themselves. Every state, label and transition earns its place.",
+            },
+            {
+              number: "02",
+              title: "Built for the browser",
+              text: "Accessible, responsive and fast — the real constraints are the product.",
+            },
+            {
+              number: "03",
+              title: "Measure, then refine",
+              text: "Ship small, watch the result, tighten the details. The second pass is where craft shows.",
+            },
+          ].map((principle) => (
+            <div key={principle.number} className="bg-ink-soft p-7 md:p-9">
+              <span className="font-mono-label text-gold">{principle.number} / Principle</span>
+              <h3 className="mt-8 font-display text-2xl leading-tight text-bone md:text-3xl">
+                {principle.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-bone/50">{principle.text}</p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -133,9 +162,9 @@ export function Career() {
             {TIMELINE.map((entry) => (
               <div
                 key={entry.year}
-                className="group flex gap-6 border-t border-bone/10 py-5 transition-colors duration-300 hover:border-gold/50"
+                className="group flex flex-col gap-2 border-t border-bone/10 py-5 transition-colors duration-300 hover:border-gold/50 sm:flex-row sm:gap-6"
               >
-                <span className="font-display text-2xl text-gold/80 md:text-3xl">{entry.year}</span>
+                <span className="shrink-0 font-display text-2xl text-gold/80 md:text-3xl">{entry.year}</span>
                 <div>
                   <p className="font-display text-lg text-bone md:text-xl">{entry.title}</p>
                   <p className="mt-1 text-sm text-bone/45">{entry.detail}</p>
@@ -145,13 +174,20 @@ export function Career() {
           </div>
         </div>
         <div className="flex flex-col justify-end">
-          <ImageReveal
-            image={IMAGES.careerDetail}
-            className="aspect-[4/3] w-full"
-            sizes="(max-width: 768px) 100vw, 45vw"
-            cursorLabel="VIEW"
-          />
-          <p className="mt-4 font-mono-label text-bone/40">Every build is a chance to make it clearer.</p>
+          <span className="font-mono-label text-gold">How I work</span>
+          <div className="mt-7 space-y-5">
+            {[
+              ["Translate", "Product questions into technical decisions, and back again."],
+              ["Prototype", "The shortest path to something people can react to."],
+              ["Polish", "Motion, type and feedback until the interface feels inevitable."],
+            ].map(([title, text]) => (
+              <div key={title} className="flex gap-5 border-t border-bone/10 pt-5">
+                <span className="w-24 shrink-0 font-display text-xl text-bone">{title}</span>
+                <p className="text-sm leading-relaxed text-bone/50">{text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 font-mono-label text-bone/35">Every build is a chance to make it clearer.</p>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { BrandMark } from "@/components/ui/BrandMark";
 import { MobileMenu } from "@/components/navigation/MobileMenu";
 import { NAV_ITEMS } from "@/lib/constants";
@@ -10,6 +10,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const menuButton = useRef<HTMLButtonElement | null>(null);
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+    window.requestAnimationFrame(() => menuButton.current?.focus());
+  }, []);
+  const overflowBeforeMenu = useRef("");
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(
@@ -41,13 +47,24 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const previous = document.body.style.overflow;
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = previous;
+    if (open) {
+      overflowBeforeMenu.current = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = overflowBeforeMenu.current;
+    }
     return () => {
-      document.body.style.overflow = previous;
+      if (open) document.body.style.overflow = overflowBeforeMenu.current;
     };
   }, [open]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const go = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault();
@@ -91,13 +108,14 @@ export function Navbar() {
         </nav>
 
         <button
+          ref={menuButton}
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="site-navigation"
           data-cursor="link"
-          className="pointer-events-auto -mr-2 flex h-12 w-12 items-center justify-center p-2 md:h-14 md:w-14"
+          className="pointer-events-auto -mr-2 flex h-12 w-12 items-center justify-center p-2 md:h-14 md:w-14 lg:hidden"
         >
           <span className="relative block h-4 w-7 md:w-8">
             <span
@@ -118,7 +136,7 @@ export function Navbar() {
         open={open}
         active={active}
         onNavigate={go}
-        onClose={() => setOpen(false)}
+        onClose={closeMenu}
       />
     </>
   );

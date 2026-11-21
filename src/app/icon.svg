@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bhavya Wade">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171220"/><stop offset="1" stop-color="#0b0a0f"/></linearGradient></defs>
-<rect width="64" height="64" rx="12" fill="url(#bg)"/>
-<rect x="1" y="1" width="62" height="62" rx="11" fill="none" stroke="#d4a24a" stroke-opacity="0.55"/>
-<svg x="9" y="7" width="46" height="52" viewBox="0 0 64 72"><path d="M3 8H19C29 8 33 17 25 22C34 26 34 38 20 38H12V56H3V8ZM12 16V31H19C23 31 24 27 20 24C16 22 14 22 12 22V16ZM12 38V48H20C25 48 26 43 21 40C18 39 15 38 12 38Z" fill="#f4efe6"/>
-<path d="M28 8H38L43 37L48 16H56L62 56H54L50 30L45 56H39L34 30L30 56H22L28 8Z" fill="#f4efe6"/>
-<path d="M29 65L34 60L39 65L34 70Z" fill="#d84b3a"/></svg>
-</svg>

@@ -14,6 +14,7 @@ type ImageRevealProps = {
   parallax?: boolean;
   cursorLabel?: string;
   zoom?: boolean;
+  position?: string;
 };
 
 export function ImageReveal({
@@ -24,6 +25,7 @@ export function ImageReveal({
   parallax = false,
   cursorLabel,
   zoom = false,
+  position = "center",
 }: ImageRevealProps) {
   const root = useRef<HTMLDivElement | null>(null);
   const inner = useRef<HTMLDivElement | null>(null);
@@ -79,6 +81,7 @@ export function ImageReveal({
           sizes={sizes}
           priority={priority}
           className={`object-cover ${zoom ? "image-zoom" : ""}`}
+          style={{ objectPosition: position }}
         />
       </div>
     </div>

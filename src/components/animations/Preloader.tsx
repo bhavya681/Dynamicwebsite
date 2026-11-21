@@ -70,7 +70,10 @@ export function Preloader() {
       aria-hidden="true"
     >
       <div ref={mark} className="flex flex-col items-center">
-        <BrandMark className="h-16 w-auto text-bone md:h-20" />
+        <div className="relative flex items-center justify-center">
+          <span className="bw-orbit-ring" aria-hidden="true" />
+          <BrandMark className="relative h-16 w-auto text-bone md:h-20" />
+        </div>
         <span className="mt-6 font-mono-label text-bone/50">Bhavya Wade</span>
       </div>
 

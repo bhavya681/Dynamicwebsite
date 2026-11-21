@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientTransform="translate(450 470) rotate(90) scale(620 620)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17130d"/>
+      <stop offset="1" stop-color="#080809"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="900" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d7a85a"/>
+      <stop offset="1" stop-color="#8a5f24"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <g opacity="0.5">
+    <circle cx="450" cy="470" r="330" stroke="#f5f0e7" stroke-opacity="0.13"/>
+    <circle cx="450" cy="470" r="270" stroke="#f5f0e7" stroke-opacity="0.09"/>
+    <circle cx="450" cy="470" r="205" stroke="#b68a3e" stroke-opacity="0.22"/>
+    <circle cx="450" cy="470" r="120" stroke="#f5f0e7" stroke-opacity="0.12"/>
+  </g>
+  <g stroke="#f5f0e7" stroke-opacity="0.16">
+    <path d="M450 140V800M120 470H780M215 235 685 705M685 235 215 705"/>
+  </g>
+  <g fill="#f5f0e7" fill-opacity="0.3">
+    <circle cx="450" cy="140" r="3"/><circle cx="685" cy="235" r="3"/><circle cx="780" cy="470" r="3"/>
+    <circle cx="685" cy="705" r="3"/><circle cx="450" cy="800" r="3"/><circle cx="215" cy="705" r="3"/>
+    <circle cx="120" cy="470" r="3"/><circle cx="215" cy="235" r="3"/>
+  </g>
+  <path d="M215 235 450 140 685 235 780 470 685 705 450 800 215 705 120 470 215 235Z" stroke="url(#gold)" stroke-opacity="0.5" stroke-width="2"/>
+  <circle cx="450" cy="470" r="52" fill="url(#gold)" fill-opacity="0.18" filter="url(#glow)"/>
+  <circle cx="450" cy="470" r="20" fill="url(#gold)"/>
+  <g fill="#f5f0e7" fill-opacity="0.5" font-family="Georgia,serif" font-size="34" text-anchor="middle">
+    <text x="450" y="112">☉</text><text x="730" y="355">☽</text><text x="730" y="600">☿</text>
+    <text x="450" y="852">♀</text><text x="170" y="600">♂</text><text x="170" y="355">♃</text>
+  </g>
+  <g fill="#f5f0e7" fill-opacity="0.16">
+    <circle cx="120" cy="930" r="2"/><circle cx="300" cy="1010" r="2"/><circle cx="620" cy="980" r="2"/><circle cx="810" cy="900" r="2"/>
+  </g>
+</svg>

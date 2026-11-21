@@ -39,7 +39,7 @@ export function Button({
 
   const onLeave = () => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || isTouchDevice() || prefersReducedMotion()) return;
     gsap.to([el, el.querySelector("[data-btn-inner]")], {
       x: 0,
       y: 0,
@@ -68,7 +68,7 @@ export function Button({
     onPointerMove: onMove,
     onPointerLeave: onLeave,
     "data-cursor": "link",
-    className: `group relative inline-flex items-center justify-center overflow-hidden px-8 py-4 font-mono-label transition-colors duration-500 ${styles} ${className}`,
+    className: `group relative inline-flex max-w-full items-center justify-center overflow-hidden px-6 py-3.5 font-mono-label transition-colors duration-500 sm:px-8 sm:py-4 ${styles} ${className}`,
     "aria-label": ariaLabel,
   };
 

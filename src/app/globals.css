@@ -2,6 +2,7 @@
 
 @theme inline {
   --color-ink: #0b0a0f;
+  --color-ink-deep: #07060a;
   --color-ink-soft: #171220;
   --color-ink-light: #221c2e;
   --color-bone: #f4efe6;
@@ -28,6 +29,7 @@
 html {
   background: #0b0a0f;
   scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -70,6 +72,16 @@ a:focus-visible,
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
+}
+
+@media (max-width: 380px) {
+  :root {
+    --page-x: 1rem;
+  }
+
+  .font-mono-label {
+    letter-spacing: 0.16em;
+  }
 }
 
 .signal-dot {
@@ -156,6 +168,36 @@ a:focus-visible,
 @keyframes bw-scroll {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(200%); }
+}
+
+@keyframes bw-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bw-pulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.04); }
+}
+
+@keyframes bw-shimmer {
+  0%, 68% { transform: translateY(-130%); opacity: 0; }
+  74% { opacity: 0.55; }
+  100% { transform: translateY(130%); opacity: 0; }
+}
+
+@keyframes bw-frame-pulse {
+  0%, 72%, 100% { opacity: 0.35; }
+  82% { opacity: 1; }
+}
+
+.bw-orbit-ring {
+  position: absolute;
+  inset: -12px;
+  border: 1px solid rgba(212, 162, 74, 0.22);
+  border-top-color: #d4a24a;
+  border-radius: 999px;
+  animation: bw-orbit 3.2s linear infinite;
 }
 
 .float-slow {

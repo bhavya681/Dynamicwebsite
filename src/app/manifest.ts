@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Bhavya Wade — Building the Unexpected",
+    name: "Bhavya Wade — Software Engineer / Full-Stack Developer",
     short_name: "Bhavya Wade",
     description:
-      "Cinematic digital identity of Bhavya Wade: frontend developer, AI application builder and creative technologist.",
+      "Practical web products with React, Next.js, TypeScript and AI — from Mumbai to the internet.",
     start_url: "/",
     scope: "/",
     display: "standalone",

@@ -8,11 +8,12 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "#home", index: "01" },
   { label: "About", href: "#about", index: "02" },
   { label: "Career", href: "#career", index: "03" },
-  { label: "Work", href: "#work", index: "04" },
-  { label: "Personal", href: "#personal", index: "05" },
-  { label: "Gallery", href: "#gallery", index: "06" },
-  { label: "Projects", href: "#projects", index: "07" },
-  { label: "Contact", href: "#contact", index: "08" },
+  { label: "Highlights", href: "#highlights", index: "04" },
+  { label: "Work", href: "#work", index: "05" },
+  { label: "Interests", href: "#personal", index: "06" },
+  { label: "Gallery", href: "#gallery", index: "07" },
+  { label: "Projects", href: "#projects", index: "08" },
+  { label: "Contact", href: "#contact", index: "09" },
 ];
 
 export type ImageAsset = {
@@ -22,36 +23,16 @@ export type ImageAsset = {
 
 export const IMAGES = {
   heroVisual: {
-    src: "/images/hero-atmosphere.webp",
-    alt: "Rain-lit city street at night in a cinematic frame",
-  },
-  heroEditorial: {
-    src: "/images/contact-portrait.webp",
-    alt: "Editorial portrait of Bhavya Wade against night architecture",
+    src: "/images/myimages/image2.png",
+    alt: "Bhavya Wade, editorial portrait",
   },
   aboutPortrait: {
-    src: "/images/about-portrait.webp",
-    alt: "Bhavya Wade in a moody studio portrait",
-  },
-  aboutSecondary: {
-    src: "/images/about-secondary.webp",
-    alt: "Circuit board detail under cool light",
-  },
-  careerMain: {
-    src: "/images/career-main.webp",
-    alt: "Dark workstation with multiple code screens",
-  },
-  careerDetail: {
-    src: "/images/career-detail.webp",
-    alt: "Brutalist concrete architecture in warm light",
-  },
-  personalFeature: {
-    src: "/images/tony-detail.webp",
-    alt: "Tony Ferguson in a dark editorial frame",
-  },
-  portrait: {
-    src: "/images/portrait-bhavya.png",
+    src: "/images/myimages/image3.webp",
     alt: "Portrait of Bhavya Wade",
+  },
+  aboutAccent: {
+    src: "/images/myimages/image.webp",
+    alt: "Close portrait of Bhavya Wade",
   },
 } satisfies Record<string, ImageAsset>;
 
@@ -62,52 +43,60 @@ export type Build = {
   detail: string;
   image: ImageAsset;
   tone: "dark" | "light" | "gold";
+  href: string;
 };
 
 export const BUILDS: Build[] = [
   {
     number: "01",
     title: "SocietyAI",
-    stat: "NEXT.JS · LANGCHAIN · GEMINI",
-    detail: "Residential operations with an AI assistant, maintenance workflows and resident data in one system.",
+    stat: "AI · RAG · GENERATIVE UI",
+    detail:
+      "Residential operations with an AI assistant, maintenance workflows, financial summaries and resident data in one system.",
     image: {
       src: "/images/project-societyai.webp",
       alt: "SocietyAI dashboard interface",
     },
     tone: "dark",
+    href: "https://aiscoietyproject-roan.vercel.app/",
   },
   {
     number: "02",
     title: "VedaMilan",
     stat: "VEDIC ASTROLOGY · AI · FULL-STACK",
-    detail: "Kundli calculations, compatibility and AI-guided insight, built as a modern product.",
+    detail:
+      "Kundli calculations, compatibility, planetary insight and Vimshottari Dasha — built as a modern product.",
     image: {
       src: "/images/project-vedamilan.webp",
       alt: "VedaMilan application interface",
     },
     tone: "gold",
+    href: "https://vedamilan-lihn.vercel.app/",
   },
   {
     number: "03",
     title: "UI Time Machine",
     stat: "HISTORY → COMPARISON → INSIGHT",
-    detail: "Enter a URL, compare snapshots and understand how a website changed over time.",
+    detail:
+      "Enter a URL, compare snapshots and understand how a website changed over time — with AI-assisted design analysis.",
     image: {
       src: "/images/project-uitimemachine.webp",
-      alt: "UI Time Machine timeline preview",
+      alt: "UI Time Machine interface",
     },
-    tone: "dark",
+    tone: "light",
+    href: "#projects",
   },
   {
     number: "04",
     title: "ShipLink",
     stat: "REACT · NODE · SOCKET.IO",
-    detail: "A real-time logistics workspace for loads, bids, chat and payments.",
+    detail: "Loads, bids, chat and payments in one real-time logistics workspace.",
     image: {
       src: "/images/project-shiplink.webp",
       alt: "ShipLink logistics platform interface",
     },
-    tone: "light",
+    tone: "dark",
+    href: "https://shiplink.onrender.com/",
   },
   {
     number: "05",
@@ -118,7 +107,8 @@ export const BUILDS: Build[] = [
       src: "/images/project-finvue.webp",
       alt: "FinVue portfolio dashboard interface",
     },
-    tone: "dark",
+    tone: "gold",
+    href: "https://finvue-portfolio-dash.vercel.app/",
   },
 ];
 
@@ -132,75 +122,67 @@ export type Stat = {
 export const STATS: Stat[] = [
   {
     value: "2+",
-    label: "Years building",
-    note: "Frontend · full-stack · AI",
+    label: "Years in the build",
+    note: "Intern to frontend developer",
   },
   {
-    value: "10+",
-    label: "Projects shipped",
-    note: "Products, tools and experiments",
-  },
-  {
-    value: "2",
-    label: "Roles at Scogo",
-    note: "Intern to Frontend Developer",
+    value: "10",
+    label: "Live projects",
+    note: "AI, full-stack and product work",
   },
   {
     value: "3",
-    label: "Core disciplines",
-    note: "Frontend · AI · Product",
+    label: "Internships",
+    note: "AI/ML · IoT · Networks",
+  },
+  {
+    value: "3,016",
+    label: "LinkedIn followers",
+    note: "500+ connections",
   },
 ];
 
-export type PersonalStory = {
-  tag: string;
-  title: string;
-  text: string;
-  image: ImageAsset;
-  shape: "tall" | "wide" | "square";
-};
+export const ABOUT_PARAGRAPHS = [
+  "I'm a frontend / full-stack developer focused on shipping useful web products — clear component architecture, honest feedback states, and interfaces that stay fast and readable.",
+  "I work primarily in React, Next.js and TypeScript, and I enjoy applying AI where it solves a real user problem.",
+  "Currently at Scogo Networks in Mumbai, building scalable React and Next.js products with performance, accessibility and CI/CD discipline.",
+  "An MBA in Systems and a B.Tech in AI & Data Science let me move comfortably between engineering, product and business conversations — with a bias for shipping.",
+];
 
-export const PERSONAL: PersonalStory[] = [
+export const EDUCATION = [
   {
-    tag: "Build log",
-    title: "The second job",
-    text: "Ideas don't wait for permission. They get built, tested and shipped.",
-    image: {
-      src: "/images/personal-side.webp",
-      alt: "Moody desk lamp and dark workspace",
-    },
-    shape: "tall",
+    year: "Aug 2025 – May 2026",
+    degree: "MBA (Systems) — University of Mumbai (MU)",
+    score: "Grade 8.4",
   },
   {
-    tag: "Obsession",
-    title: "Machines that reason",
-    text: "RAG, agents, tools and the messy engineering behind useful AI.",
-    image: {
-      src: "/images/personal-ai.webp",
-      alt: "Earth from orbit with deep space behind it",
-    },
-    shape: "wide",
+    year: "Nov 2022 – May 2025",
+    degree: "B.Tech Artificial Intelligence & Data Science — University of Mumbai (MU)",
+    score: "Grade 8.4",
   },
   {
-    tag: "Craft",
-    title: "Pixels with intent",
-    text: "Interfaces should feel exact, fast and unmistakably alive.",
-    image: {
-      src: "/images/personal-frontend.webp",
-      alt: "Minimal dark desk with laptop and keyboard",
-    },
-    shape: "square",
+    year: "Sep 2019 – Jul 2022",
+    degree: "Diploma Computer Engineering — VIVA Institute of Technology",
+    score: "83%",
+  },
+];
+
+export const SKILLS = [
+  { label: "Languages & markup", items: ["HTML5", "CSS3", "JavaScript", "TypeScript"] },
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind", "ShadCN", "Redux Toolkit", "Zustand", "Context API"],
   },
   {
-    tag: "Favourite fighter",
-    title: "Tony Ferguson",
-    text: "Unorthodox, relentless, never predictable — the energy I try to bring to every build.",
-    image: {
-      src: "/images/tony-portrait.webp",
-      alt: "Tony Ferguson in a dark editorial portrait",
-    },
-    shape: "tall",
+    label: "Backend & realtime",
+    items: ["Node.js", "Express", "REST APIs", "MongoDB", "Mongoose", "PostgreSQL", "Socket.io"],
   },
+  { label: "Libraries & integration", items: ["Axios", "Framer Motion", "Framer", "Figma", "JWT"] },
+  {
+    label: "Tools & deployment",
+    items: ["Git", "GitHub", "Vercel", "Netlify", "Docker", "Firebase", "Postman", "Jira", "Slack", "Linux", "Chrome DevTools"],
+  },
+  { label: "Security & payments", items: ["OWASP / App sec", "WCAG 2.1", "Stripe"] },
 ];
 
 export type GalleryItem = ImageAsset & {
@@ -210,76 +192,28 @@ export type GalleryItem = ImageAsset & {
 
 export const GALLERY: GalleryItem[] = [
   {
-    src: "/images/portrait-bhavya.png",
-    alt: "Portrait of Bhavya Wade",
-    caption: "Bhavya Wade",
-    meta: "Portrait / 01",
+    src: "/images/myimages/image1.webp",
+    alt: "Bhavya Wade, cinematic portrait",
+    caption: "In flow",
+    meta: "Frame / 01",
   },
   {
-    src: "/images/project-societyai.webp",
-    alt: "SocietyAI dashboard interface",
-    caption: "SocietyAI",
-    meta: "Product / 02",
+    src: "/images/myimages/image2.webp",
+    alt: "Bhavya Wade, editorial portrait",
+    caption: "Off the clock",
+    meta: "Frame / 02",
   },
   {
-    src: "/images/gallery-city.webp",
-    alt: "Dark city street at night",
-    caption: "After hours",
-    meta: "City / 03",
+    src: "/images/myimages/image3.webp",
+    alt: "Bhavya Wade, studio portrait",
+    caption: "The builder",
+    meta: "Frame / 03",
   },
   {
-    src: "/images/gallery-keyboard.webp",
-    alt: "Backlit keyboard in a dark room",
-    caption: "Input",
-    meta: "Setup / 04",
-  },
-  {
-    src: "/images/tony-action.webp",
-    alt: "Tony Ferguson in a dark MMA frame",
-    caption: "Tony Ferguson",
-    meta: "MMA / 05",
-  },
-  {
-    src: "/images/gallery-garage.webp",
-    alt: "Graffiti-covered concrete pillars in a dim garage",
-    caption: "Concrete",
-    meta: "Architecture / 06",
-  },
-  {
-    src: "/images/about-secondary.webp",
-    alt: "Circuit board detail",
-    caption: "Signal",
-    meta: "Technology / 07",
-  },
-  {
-    src: "/images/project-vedamilan.webp",
-    alt: "VedaMilan application interface",
-    caption: "VedaMilan",
-    meta: "Product / 08",
-  },
-  {
-    src: "/images/gallery-coding.webp",
-    alt: "Code on a screen late at night",
-    caption: "Late build",
-    meta: "Studio / 09",
-  },
-  {
-    src: "/images/gallery-building.webp",
-    alt: "Modern building exterior at night",
-    caption: "Night geometry",
-    meta: "Architecture / 10",
-  },
-  {
-    src: "/images/project-shiplink.webp",
-    alt: "ShipLink logistics platform interface",
-    caption: "ShipLink",
-    meta: "Product / 11",
-  },
-  {
-    src: "/images/personal-ai.webp",
-    alt: "Earth seen from orbit",
-    caption: "Orbit",
-    meta: "Future / 12",
+    src: "/images/myimages/image.webp",
+    alt: "Bhavya Wade, close portrait",
+    caption: "Up close",
+    meta: "Frame / 04",
   },
 ];
 
@@ -287,6 +221,7 @@ export type Project = {
   name: string;
   category: string;
   description: string;
+  features?: string[];
   image: ImageAsset;
   href: string;
 };
@@ -294,9 +229,10 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     name: "SocietyAI",
-    category: "AI · Full-stack · SaaS",
+    category: "AI · Full-stack · SaaS · Oct 2026",
     description:
-      "Residential management with an AI assistant, maintenance workflows, payments and resident data in one system.",
+      "Residential operations with an AI assistant, maintenance workflows, financial summaries and resident data in one system.",
+    features: ["AI resident assistant", "Maintenance", "Financial summaries", "Payment history", "RAG · Generative UI"],
     image: {
       src: "/images/project-societyai.webp",
       alt: "SocietyAI dashboard interface",
@@ -305,9 +241,10 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "VedaMilan",
-    category: "AI · Vedic astrology",
+    category: "AI · Full-stack SaaS · 2026",
     description:
-      "Kundli calculations, compatibility and AI-guided insight — domain logic with a modern interface.",
+      "Kundli calculations, compatibility and AI-guided insight — a modern product for Vedic astrology and matchmaking.",
+    features: ["Kundli", "Compatibility", "Planetary calculations", "Vimshottari Dasha", "AI insights"],
     image: {
       src: "/images/project-vedamilan.webp",
       alt: "VedaMilan application interface",
@@ -316,19 +253,21 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "UI Time Machine",
-    category: "AI · Web history",
+    category: "AI · Design analysis · 2026",
     description:
-      "Historical snapshots, visual comparison and evidence-first analysis of how websites evolved.",
+      "Enter a URL, compare snapshots and understand how a website changed over time — with AI-assisted design analysis.",
+    features: ["History", "Snapshot comparison", "Design analysis", "AI-assisted insight"],
     image: {
       src: "/images/project-uitimemachine.webp",
-      alt: "UI Time Machine timeline preview",
+      alt: "UI Time Machine interface",
     },
-    href: "https://uitimemachine.vercel.app/",
+    href: "#projects",
   },
   {
     name: "ShipLink",
-    category: "Full-stack · Logistics",
-    description: "A real-time marketplace for loads, bids, chat and payments.",
+    category: "Full-stack · Logistics · Apr 2025",
+    description:
+      "Shippers and carriers needed one place to post loads, bid, chat, and pay — without fragmented tools.",
     image: {
       src: "/images/project-shiplink.webp",
       alt: "ShipLink logistics platform interface",
@@ -337,8 +276,8 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "TailTenders",
-    category: "AI · Fashion",
-    description: "Outfit recommendations without the endless scrolling.",
+    category: "AI · Fashion · Feb 2025",
+    description: "Users wanted outfit recommendations without browsing endless fashion catalogs manually.",
     image: {
       src: "/images/project-tailtenders.webp",
       alt: "TailTenders recommendation interface",
@@ -346,27 +285,115 @@ export const PROJECTS: Project[] = [
     href: "https://trialtailtender-xiab-one.vercel.app/",
   },
   {
+    name: "Footify",
+    category: "E-commerce · React · Apr 2025",
+    description: "A footwear storefront needed fast catalog browsing and checkout-ready UI on mobile.",
+    image: {
+      src: "/images/project-footify.webp",
+      alt: "Footify storefront interface",
+    },
+    href: "https://footify-commerce-133cddb3-j686.vercel.app/",
+  },
+  {
+    name: "The Hidden Astrologer",
+    category: "Next.js · Tarot · Mar 2026",
+    description: "Tarot and astrology services needed an immersive landing that converts visitors.",
+    image: {
+      src: "/images/project-hidden-astrologer.webp",
+      alt: "The Hidden Astrologer landing page",
+    },
+    href: "https://thehiddenastrologer.vercel.app/",
+  },
+  {
     name: "FinVue",
-    category: "React · Finance",
-    description: "A clear view of holdings and performance without spreadsheet overhead.",
+    category: "Finance · Dashboard · Apr 2025",
+    description: "Retail investors needed a clear view of holdings and performance without spreadsheet overhead.",
     image: {
       src: "/images/project-finvue.webp",
       alt: "FinVue portfolio dashboard interface",
     },
     href: "https://finvue-portfolio-dash.vercel.app/",
   },
+  {
+    name: "Job Portal",
+    category: "MERN · Careers · Dec 2021",
+    description: "Job seekers and recruiters lacked a single MERN workflow for posting, applying, and tracking.",
+    image: {
+      src: "/images/project-jobportal.webp",
+      alt: "Job Portal interface",
+    },
+    href: "https://mernjobportal-2-1cwi.onrender.com/",
+  },
+  {
+    name: "CodeBuddy",
+    category: "Social · Full-stack · Aug 2022",
+    description: "Developers wanted lightweight social profiles with posts and live messaging in one app.",
+    image: {
+      src: "/images/project-codebuddy.webp",
+      alt: "CodeBuddy social interface",
+    },
+    href: "https://codebuddy-gamma.vercel.app/",
+  },
+  {
+    name: "Subscription Sentinel",
+    category: "Dashboard · Product · Mar 2026",
+    description:
+      "Track recurring subscriptions, renewal dates and underused services — with spending overview, waste detection and smart recommendations.",
+    image: {
+      src: "/images/project-subscription-sentinel.webp",
+      alt: "Subscription Sentinel dashboard concept",
+    },
+    href: "https://www.linkedin.com/posts/bhavya-wade_webdevelopment-frontenddevelopment-uiux-activity-7442067825797525504-y8e5",
+  },
+];
+
+export const PROFILE_HEADLINE =
+  "Software Engineer · Full-Stack Developer (MERN) · React · Next.js · TypeScript · AI & Data Science";
+
+export type Highlight = {
+  year: string;
+  category: string;
+  title: string;
+  detail: string;
+  href?: string;
+};
+
+export const HIGHLIGHTS: Highlight[] = [
+  {
+    year: "2026",
+    category: "Recognition",
+    title: "1st place · VCET VNPS Hackathon",
+    detail: "First place for a full-stack build — ideas ship better under pressure.",
+  },
+  {
+    year: "2025",
+    category: "Career",
+    title: "PPO at Scogo Networks",
+    detail: "Converted a frontend internship into a full-time role by owning enterprise UI work.",
+  },
+  {
+    year: "2026",
+    category: "Product",
+    title: "Subscription Sentinel",
+    detail: "Renewal tracking, usage insights, spend overview, waste detection and smart recommendations.",
+    href: "https://www.linkedin.com/posts/bhavya-wade_webdevelopment-frontenddevelopment-uiux-activity-7442067825797525504-y8e5",
+  },
+  {
+    year: "2026",
+    category: "Community",
+    title: "3K+ on LinkedIn",
+    detail: "Sharing builds, frontend craft and practical AI — 3,016 followers and 500 connections.",
+    href: "https://www.linkedin.com/in/bhavya-wade/",
+  },
 ];
 
 export const SOCIALS = [
   { label: "GitHub", href: "https://github.com/bhavya681" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/bhavya-wade/" },
-  { label: "Portfolio", href: "https://www.bhavyawade.dev" },
   { label: "X / Twitter", href: "https://x.com/wade_bhavy55123" },
+  { label: "Instagram", href: "https://www.instagram.com/bhavya_wade" },
 ];
 
 export const CONTACT_EMAIL = "bhavyawade2@gmail.com";
+export const CONTACT_LOCATION = "Mumbai, Maharashtra, India";
 
-export const IMAGE_CREDITS = {
-  label: "Tony Ferguson imagery: Newaza Apparel / CC BY 3.0",
-  href: "https://commons.wikimedia.org/wiki/File:Tony_Ferguson_MMA_2.png",
-};

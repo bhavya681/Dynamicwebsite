@@ -1,26 +1,18 @@
+import Image from "next/image";
+
 type BrandMarkProps = {
   className?: string;
   tone?: "light" | "dark";
 };
 
-export function BrandMark({ className = "", tone = "light" }: BrandMarkProps) {
+export function BrandMark({ className = "" }: BrandMarkProps) {
   return (
-    <svg
-      viewBox="0 0 64 72"
+    <Image
+      src="/icons/icon-512.png"
+      alt="Bhavya Wade — BW monogram"
+      width={64}
+      height={64}
       className={className}
-      fill="none"
-      role="img"
-      aria-label="Bhavya Wade"
-    >
-      <path
-        d="M3 8H19C29 8 33 17 25 22C34 26 34 38 20 38H12V56H3V8ZM12 16V31H19C23 31 24 27 20 24C16 22 14 22 12 22V16ZM12 38V48H20C25 48 26 43 21 40C18 39 15 38 12 38Z"
-        fill={tone === "light" ? "currentColor" : "#0b0a0f"}
-      />
-      <path
-        d="M28 8H38L43 37L48 16H56L62 56H54L50 30L45 56H39L34 30L30 56H22L28 8Z"
-        fill={tone === "light" ? "currentColor" : "#0b0a0f"}
-      />
-      <path d="M29 65L34 60L39 65L34 70Z" fill="#d84b3a" />
-    </svg>
+    />
   );
 }
